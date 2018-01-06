@@ -12,11 +12,11 @@ function decks(state = initialState, action) {
                 ...action.deck,
             };
         case ADD_CARD :
-            let newDeck = {...state[action.deck.key]};
+            let newDeck = {...state[action.deckTitle]};
             newDeck.questions = [...newDeck.questions, action.card];
             return {
                 ...state,
-                [action.deck.key]: newDeck,
+                [action.deckTitle]: newDeck,
             };
         default :
             return state;

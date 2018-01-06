@@ -6,17 +6,20 @@ import {defaultStyles} from '../styles/default';
 import {addDeck} from '../actions/index';
 import {appLightInk} from '../styles/colors';
 
+const defaultState = {text: ''};
+
 class AddDeck extends React.Component {
-    state = {text: ''};
+    state = defaultState;
     addDeck = (title) => {
         if (title.length > 0) {
             this.props.dispatchAddDeck(title);
             this.props.navigation.navigate('AddCard', {title});
         }
-        this.setState({text: ''});
+        this.setState(defaultState);
     };
 
     render() {
+        // keyboardVerticalOffset as per https://github.com/react-navigation/react-navigation/issues/721
         return <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={65} style={defaultStyles.mainView}>
             <Text style={styles.heading}>What is the title</Text>
             <Text style={styles.heading}>of your new</Text>
