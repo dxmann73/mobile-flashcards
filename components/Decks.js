@@ -1,18 +1,16 @@
 import React from 'react';
-
 import {connect} from 'react-redux';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {defaultStyles} from '../styles/default';
-import {appDefaultInk, appDefaultPaper, appLightInk} from '../styles/colors';
+import FcDeck from './shared/FcDeck';
 
 class Decks extends React.Component {
-    deckPanel = ({item}) => <TouchableOpacity onPress={() => this.toDeck(item.key)} style={styles.fullWidthPanel}>
-        <Text style={styles.deckTitle}>{item.title}</Text>
-        <Text style={styles.deckSubtitle}>{item.numCards} Cards</Text>
+    deckPanel = ({item}) => <TouchableOpacity onPress={() => this.toDeck(item)} style={styles.panelWrapper}>
+        <FcDeck title={item.title} numCards={item.numCards} />
     </TouchableOpacity>;
 
-    toDeck = (key) => {
-        this.props.navigation.navigate('Deck', {key});
+    toDeck = ({key, title, numCards}) => {
+        this.props.navigation.navigate('Deck', {key, title, numCards});
     };
 
     render() {
@@ -24,22 +22,11 @@ class Decks extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    fullWidthPanel: {
+    panelWrapper: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomWidth: 2,
-        backgroundColor: appDefaultPaper,
-        paddingTop: 30,
-        paddingBottom: 30,
-    },
-    deckTitle: {
-        fontSize: 28,
-        color: appDefaultInk,
-    },
-    deckSubtitle: {
-        fontSize: 24,
-        color: appLightInk,
     },
 });
 
