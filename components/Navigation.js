@@ -10,14 +10,14 @@ const Tabs = TabNavigator({
         screen: Decks,
         navigationOptions: {
             tabBarLabel: 'Decks',
-            tabBarIcon: ({tintColor}) => <Ionicons name="ios-bookmarks" size={30} color={tintColor} />
+            tabBarIcon: ({tintColor}) => <FontAwesome name="list-alt" size={24} color={tintColor} />
         },
     },
     AddDeck: {
         screen: AddDeck,
         navigationOptions: {
             tabBarLabel: 'Add New Deck',
-            tabBarIcon: ({tintColor}) => <FontAwesome name="plus-square" size={30} color={tintColor} />
+            tabBarIcon: ({tintColor}) => <FontAwesome name="plus-square" size={24} color={tintColor} />
         },
     }
 }, {
@@ -26,16 +26,10 @@ const Tabs = TabNavigator({
     },
     tabBarOptions: {
         activeTintColor: appTintColor,
+        showIcon: true,
         style: {
-            height: 56,
+            height: 70,
             backgroundColor: appBackgroundColor,
-            shadowColor: 'rgba(0, 0, 0, 0.24)',
-            shadowOffset: {
-                width: 0,
-                height: 3
-            },
-            shadowRadius: 6,
-            shadowOpacity: 1
         }
     }
 });
