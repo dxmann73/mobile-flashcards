@@ -12,7 +12,7 @@ class AddDeck extends React.Component {
     };
 
     render() {
-        return <View style={defaultStyles.container}>
+        return <View style={defaultStyles.mainView}>
             <Text>AddDeck</Text>
             <Text>Input of deck name here</Text>
             <FcButton onPress={this.toAddCard} buttonText={'Submit'} inverted={true} />

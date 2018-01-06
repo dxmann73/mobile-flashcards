@@ -4,7 +4,7 @@ import {defaultStyles} from '../styles/default';
 
 class AddCard extends React.Component {
     render() {
-        return <View style={defaultStyles.container}>
+        return <View style={defaultStyles.mainView}>
             <Text>AddCard</Text>
         </View>;
     }

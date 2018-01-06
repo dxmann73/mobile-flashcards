@@ -12,7 +12,7 @@ class Decks extends React.Component {
     };
 
     render() {
-        return <View style={defaultStyles.container}>
+        return <View style={defaultStyles.mainView}>
             <Text>Decks View</Text>
             <FcButton onPress={this.toDeck} buttonText={'Show Deck'} inverted={true}/>
         </View>;
