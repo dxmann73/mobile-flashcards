@@ -4,13 +4,13 @@ import {defaultStyles} from '../styles/default';
 import {appDefaultInk, appDefaultPaper, appLightInk} from '../styles/colors';
 
 class Decks extends React.Component {
-    deckPanel = ({item}) => <TouchableOpacity onPress={() => this.toDeck(item)} style={styles.fullWidthPanel}>
+    deckPanel = ({item}) => <TouchableOpacity onPress={() => this.toDeck(item.key)} style={styles.fullWidthPanel}>
         <Text style={styles.deckTitle}>{item.title}</Text>
         <Text style={styles.deckSubtitle}>{item.numCards} Cards</Text>
     </TouchableOpacity>;
 
-    toDeck = (deck) => {
-        this.props.navigation.navigate('Deck', {deck});
+    toDeck = (key) => {
+        this.props.navigation.navigate('Deck', {key});
     };
 
     render() {

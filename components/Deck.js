@@ -4,6 +4,13 @@ import FcButton from './shared/FcButton';
 import {defaultStyles} from '../styles/default';
 
 class Deck extends React.Component {
+    static navigationOptions = ({navigation}) => {
+        const title = JSON.stringify(navigation.state.params);
+        return {
+            title: `${title}`
+        };
+    };
+
     toAddCard = () => {
         this.props.navigation.navigate(
             'AddCard',
