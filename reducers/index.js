@@ -1,23 +1,22 @@
-import {ADD_CARD, ADD_DECK, GET_DECKS} from '../actions';
+import {ADD_CARD, ADD_DECK, RECEIVE_DECKS} from '../actions';
 
 function decks(state = initialState, action) {
     switch (action.type) {
-        case GET_DECKS :
+        case RECEIVE_DECKS :
             return {
-                ...state,
                 ...action.decks,
             };
         case ADD_DECK :
             return {
                 ...state,
-                ...action.deck
+                ...action.deck,
             };
         case ADD_CARD :
             let newDeck = {...state[action.deck.key]};
             newDeck.questions = [...newDeck.questions, action.card];
             return {
                 ...state,
-                [action.deck.key]: newDeck
+                [action.deck.key]: newDeck,
             };
         default :
             return state;
@@ -38,19 +37,6 @@ const initialState = {
             }
         ]
     },
-    StarCitizen: {
-        title: 'Star Citizen',
-        questions: [
-            {
-                question: 'When will 3.0 go live?',
-                answer: 'Not before 2022'
-            },
-            {
-                question: 'What needs to be done every tuesday',
-                answer: 'GIB ATV'
-            }
-        ]
-    },
     JavaScript: {
         title: 'JavaScript',
         questions: [
@@ -60,18 +46,6 @@ const initialState = {
             }
         ]
     },
-    EmptyArray: {
-        title: 'Empty Array',
-        questions: [
-        ]
-    },
-    EmptyObject: {
-        title: 'Empty Object',
-        questions: [
-            {
-            }
-        ]
-    }
 };
 
 export default decks;

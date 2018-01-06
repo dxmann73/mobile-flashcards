@@ -1,15 +1,17 @@
-export const GET_DECKS = 'GET_DECKS';
+export const RECEIVE_DECKS = 'RECEIVE_DECKS';
 export const ADD_DECK = 'ADD_DECK';
 export const ADD_CARD = 'ADD_CARD';
 
-export function getDecks(decks) {
+export function receiveDecks(decks) {
+    // TODO initial state: Storage empty, or do we provide a "demo" deck?
     return {
-        type: GET_DECKS,
+        type: RECEIVE_DECKS,
         decks,
     };
 }
 
-export function addDeck(deck) {
+export function addDeck(title) {
+    const deck = {[title]: {title, questions: []}};
     return {
         type: ADD_DECK,
         deck,
