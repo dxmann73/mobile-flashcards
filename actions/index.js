@@ -11,7 +11,7 @@ export function receiveDecks(decks) {
 }
 
 export function addDeck(title) {
-    const deck = {[title]: {title, questions: []}};
+    const deck = {[title]: {title, cards: []}};
     return {
         type: ADD_DECK,
         deck,

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        decks: Object.keys(state).map(title => ({title, numCards: state[title].questions.length}))
+        decks: Object.keys(state).map(title => ({title, numCards: state[title].cards.length}))
     };
 };
 

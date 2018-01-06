@@ -13,7 +13,7 @@ function decks(state = initialState, action) {
             };
         case ADD_CARD :
             let newDeck = {...state[action.deckTitle]};
-            newDeck.questions = [...newDeck.questions, action.card];
+            newDeck.cards = [...newDeck.cards, action.card];
             return {
                 ...state,
                 [action.deckTitle]: newDeck,
@@ -26,7 +26,7 @@ function decks(state = initialState, action) {
 const initialState = {
     React: {
         title: 'React',
-        questions: [
+        cards: [
             {
                 question: 'What is React?',
                 answer: 'A library for managing user interfaces'
@@ -39,7 +39,7 @@ const initialState = {
     },
     JavaScript: {
         title: 'JavaScript',
-        questions: [
+        cards: [
             {
                 question: 'What is a closure?',
                 answer: 'The combination of a function and the lexical environment within which that function was declared.'

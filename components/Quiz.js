@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state, {navigation}) => ({
     title: navigation.state.params.title,
-    cards: state[navigation.state.params.title].questions,
+    cards: state[navigation.state.params.title].cards,
 } );
 
 export default connect(mapStateToProps)(Quiz);
