@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Text, View} from 'react-native';
 import FcButton from './shared/FcButton';
 import {defaultStyles} from '../styles/default';
@@ -20,4 +21,8 @@ class AddDeck extends React.Component {
     };
 }
 
-export default AddDeck;
+const mapStateToProps = (state, props) => ({
+    key: props.key,
+} );
+
+export default connect(mapStateToProps)(AddDeck);
