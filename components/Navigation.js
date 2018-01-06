@@ -1,7 +1,7 @@
 import React from 'react';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 import {FontAwesome, Ionicons} from '@expo/vector-icons';
-import {appNavigationBackgroundColor, appDarkInk} from '../styles/colors';
+import {appHighlightInk, appDarkInk} from '../styles/colors';
 import Decks from './Decks';
 import AddDeck from './AddDeck';
 import Deck from './Deck';
@@ -32,7 +32,7 @@ const Tabs = TabNavigator({
         showIcon: true,
         style: {
             height: 70,
-            backgroundColor: appNavigationBackgroundColor,
+            backgroundColor: appHighlightInk,
         }
     }
 });
@@ -46,7 +46,7 @@ const MainNavigation = StackNavigator({
         navigationOptions: {
             headerTintColor: appDarkInk,
             headerStyle: {
-                backgroundColor: appNavigationBackgroundColor,
+                backgroundColor: appHighlightInk,
             }
         }
     },
@@ -55,7 +55,7 @@ const MainNavigation = StackNavigator({
         navigationOptions: {
             headerTintColor: appDarkInk,
             headerStyle: {
-                backgroundColor: appNavigationBackgroundColor,
+                backgroundColor: appHighlightInk,
             }
         }
     },
@@ -64,7 +64,7 @@ const MainNavigation = StackNavigator({
         navigationOptions: {
             headerTintColor: appDarkInk,
             headerStyle: {
-                backgroundColor: appNavigationBackgroundColor,
+                backgroundColor: appHighlightInk,
             }
         }
     }

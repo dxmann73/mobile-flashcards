@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {appDefaultInk, appDefaultPaper} from '../../styles/colors';
+import {appDefaultPaper, appHighlightInk} from '../../styles/colors';
 
 const FcButton = ({
                       onPress, buttonText, inverted,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     buttonColor: {
-        backgroundColor: appDefaultInk,
+        backgroundColor: appHighlightInk,
         borderColor: appDefaultPaper,
     },
     buttonTextColor: {
@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
     },
     buttonColorInverted: {
         backgroundColor: appDefaultPaper,
-        borderColor: appDefaultInk,
-        borderWidth: 3,
+        borderColor: appHighlightInk,
+        borderWidth: 4,
     },
     buttonTextColorInverted: {
-        color: appDefaultInk,
+        color: appHighlightInk,
     },
 });
 
