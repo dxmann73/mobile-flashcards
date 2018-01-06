@@ -2,7 +2,7 @@ import React from 'react';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducers';
-import {View} from 'react-native';
+import {KeyboardAvoidingView, View} from 'react-native';
 import FcStatusBar from './components/shared/FcStatusBar';
 import {defaultStyles} from './styles/default';
 import {appNavigationBackgroundColor} from './styles/colors';
