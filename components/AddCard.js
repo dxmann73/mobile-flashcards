@@ -20,7 +20,6 @@ class AddCard extends React.Component {
     goBack = () => {
         this.setState(defaultState);
         this.props.navigation.navigate('Home');
-
     };
 
     render() {
@@ -38,9 +37,9 @@ class AddCard extends React.Component {
                        value={this.state.answer}
             />
             <FcButton onPress={() => this.addCardToDeck(this.state.question.trim(), this.state.answer.trim())}
-                      buttonText={'Add card'} inverted={true} />
+                      buttonText={'Add card'} />
             <FcButton onPress={this.goBack}
-                      buttonText={'Done'} />
+                      buttonText={'Done'} inverted={true} />
         </KeyboardAvoidingView>;
     }
 }

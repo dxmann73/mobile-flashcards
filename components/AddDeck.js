@@ -11,6 +11,7 @@ const defaultState = {text: ''};
 class AddDeck extends React.Component {
     state = defaultState;
     addDeck = (title) => {
+        // TODO animate text field when empty on submit
         if (title.length > 0) {
             this.props.dispatchAddDeck(title);
             this.props.navigation.navigate('AddCard', {title});
@@ -29,7 +30,7 @@ class AddDeck extends React.Component {
                        onChangeText={(text) => this.setState({text})}
                        value={this.state.text}
             />
-            <FcButton onPress={() => this.addDeck(this.state.text.trim())} buttonText={'Submit'} inverted={true} />
+            <FcButton onPress={() => this.addDeck(this.state.text.trim())} buttonText={'Submit'} />
         </KeyboardAvoidingView>;
     };
 }

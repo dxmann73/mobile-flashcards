@@ -2,11 +2,17 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {appDefaultInk, appDefaultPaper} from '../../styles/colors';
 
-const FcButton = ({onPress, buttonText, inverted}) => <View>
+const FcButton = ({
+                      onPress, buttonText, inverted,
+                      buttonColorStyle = styles.buttonColor,
+                      buttonTextColorStyle = styles.buttonTextColor,
+                      buttonColorInvertedStyle = styles.buttonColorInverted,
+                      buttonTextColorInvertedStyle = styles.buttonTextColorInverted,
+                  }) => <View>
     <TouchableOpacity
-        style={[styles.buttonShape, inverted ? styles.buttonColor : styles.buttonColorInverted]}
+        style={[styles.buttonShape, inverted ? buttonColorInvertedStyle : buttonColorStyle]}
         onPress={onPress}>
-        <Text style={[styles.buttonText, inverted ? styles.buttonTextColor : styles.buttonTextColorInverted]}>{buttonText}</Text>
+        <Text style={[styles.buttonText, inverted ? buttonTextColorInvertedStyle : buttonTextColorStyle]}>{buttonText}</Text>
     </TouchableOpacity>
 </View>;
 

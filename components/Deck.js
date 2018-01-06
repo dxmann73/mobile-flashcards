@@ -21,8 +21,8 @@ class Deck extends React.Component {
             <View style={styles.deckWrapper}>
                 <FcDeck title={title} numCards={numCards} />
             </View>
-            <FcButton onPress={() => this.toAddCard(title)} buttonText={'Add Card'} />
-            <FcButton onPress={() => this.toQuiz(title)} buttonText={'Start quiz'} inverted={true} />
+            <FcButton onPress={() => this.toAddCard(title)} buttonText={'Add Card'} inverted={true} />
+            <FcButton onPress={() => this.toQuiz(title)} buttonText={'Start quiz'} />
         </View>;
     }
 }
