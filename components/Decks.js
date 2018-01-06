@@ -5,18 +5,23 @@ import {defaultStyles} from '../styles/default';
 import FcDeck from './shared/FcDeck';
 
 class Decks extends React.Component {
-    deckPanel = ({item}) => <TouchableOpacity onPress={() => this.toDeck(item)} style={styles.panelWrapper}>
-        <FcDeck title={item.title} numCards={item.numCards} />
-    </TouchableOpacity>;
 
-    toDeck = ({key, title, numCards}) => {
-        this.props.navigation.navigate('Deck', {key, title, numCards});
+    deckPanel = ({item}) => (
+        <TouchableOpacity onPress={() => this.toDeck(item)} style={styles.panelWrapper}>
+            <FcDeck title={item.title} numCards={item.numCards} />
+        </TouchableOpacity>);
+
+    toDeck = ({title, numCards}) => {
+        this.props.navigation.navigate('Deck', {title, numCards});
     };
 
     render() {
         const {decks} = this.props;
         return <View style={defaultStyles.container}>
-            <FlatList data={decks} renderItem={this.deckPanel} />
+            <FlatList
+                data={decks}
+                renderItem={this.deckPanel}
+                keyExtractor={(item, index) => item.title} />
         </View>;
     }
 }
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        decks: Object.keys(state).map(key => ({key, title: state[key].title, numCards: state[key].questions.length}))
+        decks: Object.keys(state).map(title => ({title, numCards: state[title].questions.length}))
     };
 };
 

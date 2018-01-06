@@ -8,17 +8,11 @@ import FcDeck from './shared/FcDeck';
 class Deck extends React.Component {
     static navigationOptions = ({navigation}) => ({title: `${navigation.state.params.title}`});
 
-    toAddCard = () => {
-        this.props.navigation.navigate(
-            'AddCard',
-            {deckId: 1}
-        );
+    toAddCard = (title) => {
+        this.props.navigation.navigate('AddCard', {title});
     };
-    toQuiz = () => {
-        this.props.navigation.navigate(
-            'Quiz',
-            {deckId: 1}
-        );
+    toQuiz = (title) => {
+        this.props.navigation.navigate('Quiz', {title});
     };
 
     render() {
@@ -27,8 +21,8 @@ class Deck extends React.Component {
             <View style={styles.deckWrapper}>
                 <FcDeck title={title} numCards={numCards} />
             </View>
-            <FcButton onPress={this.toAddCard} buttonText={'Add Card'} />
-            <FcButton onPress={this.toQuiz} buttonText={'Start quiz'} inverted={true} />
+            <FcButton onPress={() => this.toAddCard(title)} buttonText={'Add Card'} />
+            <FcButton onPress={() => this.toQuiz(title)} buttonText={'Start quiz'} inverted={true} />
         </View>;
     }
 }
@@ -40,10 +34,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state, {navigation}) => ({
-    key: navigation.state.params.key,
     title: navigation.state.params.title,
     numCards: navigation.state.params.numCards,
-    deck: state[navigation.state.params.key],
+    deck: state[navigation.state.params.title],
 } );
 
 export default connect(mapStateToProps)(Deck);
