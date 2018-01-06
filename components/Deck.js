@@ -20,7 +20,7 @@ class Deck extends React.Component {
     render() {
         return <View style={defaultStyles.mainView}>
             <Text>Deck View</Text>
-            <FcButton onPress={this.toAddCard} buttonText={'Add card to Deck'} inverted={true} />
+            <FcButton onPress={this.toAddCard} buttonText={'Add Card'} inverted={true} />
             <FcButton onPress={this.toQuiz} buttonText={'Start quiz'} />
         </View>;
     }

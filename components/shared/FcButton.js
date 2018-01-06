@@ -12,13 +12,13 @@ const FcButton = ({onPress, buttonText, inverted}) => <View>
 
 const styles = StyleSheet.create({
     buttonShape: {
-        padding: 10,
+        padding: 20,
         paddingLeft: 30,
         paddingRight: 30,
         marginTop: 30,
-        height: 45,
+        height: 60,
         width: 300,
-        borderRadius: 1,
+        borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
     },
