@@ -1,4 +1,6 @@
 import React from 'react';
+
+import {connect} from 'react-redux';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {defaultStyles} from '../styles/default';
 import {appDefaultInk, appDefaultPaper, appLightInk} from '../styles/colors';
@@ -14,7 +16,7 @@ class Decks extends React.Component {
     };
 
     render() {
-        const decks = Object.keys(tmpState).map(key => ({key, title: tmpState[key].title, numCards: tmpState[key].questions.length}));
+        const {decks} = this.props;
         return <View style={defaultStyles.container}>
             <FlatList data={decks} renderItem={this.deckPanel} />
         </View>;
@@ -41,54 +43,10 @@ const styles = StyleSheet.create({
     },
 });
 
-const tmpState = {
-    React: {
-        title: 'React',
-        questions: [
-            {
-                question: 'What is React?',
-                answer: 'A library for managing user interfaces'
-            },
-            {
-                question: 'Where do you make Ajax requests in React?',
-                answer: 'The componentDidMount lifecycle event'
-            }
-        ]
-    },
-    StarCitizen: {
-        title: 'Star Citizen',
-        questions: [
-            {
-                question: 'When will 3.0 go live?',
-                answer: 'Not before 2022'
-            },
-            {
-                question: 'What needs to be done every tuesday',
-                answer: 'GIB ATV'
-            }
-        ]
-    },
-    JavaScript: {
-        title: 'JavaScript',
-        questions: [
-            {
-                question: 'What is a closure?',
-                answer: 'The combination of a function and the lexical environment within which that function was declared.'
-            }
-        ]
-    },
-    EmptyArray: {
-        title: 'Empty Array',
-        questions: [
-        ]
-    },
-    EmptyObject: {
-        title: 'Empty Object',
-        questions: [
-            {
-            }
-        ]
-    }
+const mapStateToProps = (state) => {
+    return {
+        decks: Object.keys(state).map(key => ({key, title: state[key].title, numCards: state[key].questions.length}))
+    };
 };
 
-export default Decks;
+export default connect(mapStateToProps)(Decks);
