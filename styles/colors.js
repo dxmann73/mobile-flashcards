@@ -1,5 +1,7 @@
-export const appBackgroundColor = '#3c6cff';
-export const appTintColor = '#000';
+export const appNavigationBackgroundColor = '#3c6cff';
 
-export const appDefaultButtonColor = '#222';
-export const appDefaultButtonTintColor = '#eee';
+export const appDarkInk = '#000';
+export const appDefaultInk = '#222';
+export const appLightInk = '#666666';
+
+export const appDefaultPaper = '#eee';

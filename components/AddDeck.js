@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import FcButton from './FcButton';
+import FcButton from './shared/FcButton';
 import {defaultStyles} from '../styles/default';
 
 class AddDeck extends React.Component {
