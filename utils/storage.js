@@ -8,25 +8,25 @@ export const NO_DATA = {};
 /** Retrieves all decks from storage or empty object */
 export const retrieveDecksFromStorage = (dispatch) =>
     getDecksFromStorage()
-        .then((decks) => dispatch(receiveDecks(decks)));
+        .then(decks => dispatch(receiveDecks(decks)));
 
 /** Creates new deck and adds it to the decks currently in storage */
 export const addDeckToStorage = (dispatch, title) => {
     const newDeck = {[title]: {title, cards: []}};
-    return getDecksFromStorage
-        .then((decks) => ({...decks, ...newDeck}))
-        .then((modifiedDecks) => AsyncStorage.setItem(storage_key, JSON.stringify(modifiedDecks)))
+    return getDecksFromStorage()
+        .then(decks => ({...decks, ...newDeck}))
+        .then(modifiedDecks => AsyncStorage.setItem(storage_key, JSON.stringify(modifiedDecks)))
         .then(() => dispatch(addDeck(newDeck)));
 };
 
 /** Adds a card to a currently existing deck */
 export const addCardToStorage = (dispatch, title, card) =>
-    getDecksFromStorage
-        .then((decks) => {
-            const modifiedDeck = {[title]: {title, cards: {...decks[title].cards, card}}};
-            return ({...decks, ...modifiedDeck});
+    getDecksFromStorage()
+        .then(decks => {
+            const modifiedDeck = {[title]: {title, cards: [...decks[title].cards, card]}};
+            return {...decks, ...modifiedDeck};
         })
-        .then((modifiedDecks) => AsyncStorage.setItem(storage_key, JSON.stringify(modifiedDecks)))
+        .then(modifiedDecks => AsyncStorage.setItem(storage_key, JSON.stringify(modifiedDecks)))
         .then(() => dispatch(addCard(title, card)));
 
 /** @return a Promise which will eventually return the decks or {} if empty */
