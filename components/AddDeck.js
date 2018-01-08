@@ -12,7 +12,7 @@ const defaultState = {text: ''};
 class AddDeck extends React.Component {
     state = defaultState;
     addDeck = (title) => {
-        // TODO animate text field when empty on submit
+        // later: animate text field when empty on submit
         if (title.length > 0) {
             addDeckToStorage(this.props.dispatch, title)
                 .then(() => this.props.navigation.navigate('AddCard', {title}));

@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {appDarkInk, appDefaultPaper, appLightInk} from './colors';
 
-// TODO styles for landscape orientation or ScrollViews?
 export const defaultStyles = StyleSheet.create({
     container: {
         flex: 1,
