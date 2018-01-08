@@ -4,6 +4,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {defaultStyles} from '../styles/default';
 import {appDefaultPaper, appGreen, appRed, appWhite} from '../styles/colors';
 import FcButton from './shared/FcButton';
+import {clearAppNotification, setAppNotification} from '../utils/notifications';
 
 const defaultState = {card: 0, score: 0, showFrontSide: true};
 
@@ -18,15 +19,22 @@ class Quiz extends React.Component {
     failed = () => {
         this.setState((prev) => ({card: prev.card + 1, showFrontSide: true}));
     };
-    restart = () => {
-        this.setState(defaultState);
-    };
-    goBack = () => {
-        this.props.navigation.navigate('Home');
-    };
     goToAddCards = (title) => {
         this.props.navigation.navigate('AddCard', {title});
     };
+    restart = () => {
+        this.moveNotificationOneDayForward();
+        this.setState(defaultState);
+    };
+    goBack = () => {
+        this.moveNotificationOneDayForward();
+        this.props.navigation.navigate('Home');
+    };
+
+    moveNotificationOneDayForward() {
+        clearAppNotification()
+            .then(setAppNotification());
+    }
 
     render() {
         const {cards, title} = this.props;
