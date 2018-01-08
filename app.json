@@ -14,7 +14,8 @@
             "bundleIdentifier": "org.linkage.mfc"
         },
         "android": {
-            "package": "org.linkage.mfc"
+            "package": "org.linkage.mfc",
+            "permissions": ["VIBRATE"]
         }
     }
 }
