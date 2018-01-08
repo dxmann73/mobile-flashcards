@@ -2,21 +2,22 @@ import React from 'react';
 import {AsyncStorage} from 'react-native';
 import {Notifications, Permissions} from 'expo';
 
-const notification_key = 'mobile-flashcards.notification';
-const notification_hour = 12;
-const notification_minute = 0;
-const notification_daily = 'day';
+const NOTIFICATION_KEY = 'mobile-flashcards.notification';
+const NOTIFICATION_OFFSET_DAYS = 1;
+const NOTIFICATION_HOUR = 12;
+const NOTIFICATION_MINUTE = 0;
+const NOTIFICATION_DAILY = 'day';
 
 /** Remove notification key from storage and cancel all current notifications */
-export const clearAppNotification = () => AsyncStorage.removeItem(notification_key)
+export const clearAppNotification = () => AsyncStorage.removeItem(NOTIFICATION_KEY)
     .then(Notifications.cancelAllScheduledNotificationsAsync);
 
 /** set up a notification to trigger daily at 12pm */
 export const setAppNotification = () => {
-    AsyncStorage.getItem(notification_key)
+    AsyncStorage.getItem(NOTIFICATION_KEY)
         .then(JSON.parse)
         .then((data) => {
-            if (data === null) { // only add if not already there. normally, we delete the key before generating a new ons
+            if (data === null) { // only add if not already there. normally, we delete the key before generating a new one
                 Permissions.askAsync(Permissions.NOTIFICATIONS)
                     .then(({status}) => {
                         if (status === 'granted') {
@@ -28,17 +29,17 @@ export const setAppNotification = () => {
                                     android: {
                                         sound: true,
                                         priority: 'high',
-                                        sticky: false,
+                                        sticky: true,
                                         vibrate: true,
                                     }
                                 },
                                 {
                                     time: tomorrow(),
-                                    repeat: notification_daily,
+                                    repeat: NOTIFICATION_DAILY,
                                 }
                             );
 
-                            AsyncStorage.setItem(notification_key, JSON.stringify(true));
+                            AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
                         }
                     });
             }
@@ -47,8 +48,9 @@ export const setAppNotification = () => {
 
 const tomorrow = () => {
     let tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(notification_hour);
-    tomorrow.setMinutes(notification_minute);
+    tomorrow.setDate(tomorrow.getDate() + NOTIFICATION_OFFSET_DAYS);
+    tomorrow.setHours(NOTIFICATION_HOUR);
+    tomorrow.setMinutes(NOTIFICATION_MINUTE);
+    // for testing: tomorrow.setSeconds(tomorrow.getSeconds() + 10);
     return tomorrow;
 };
