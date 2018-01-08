@@ -1,11 +1,13 @@
 import {ADD_CARD, ADD_DECK, RECEIVE_DECKS} from '../actions';
+import {NO_DATA} from '../utils/storage';
 
-function decks(state = initialState, action) {
+function decks(state = {}, action) {
     switch (action.type) {
         case RECEIVE_DECKS :
-            return {
-                ...action.decks,
-            };
+            if (action.decks === NO_DATA) {
+                return demoState;
+            }
+            return action.decks;
         case ADD_DECK :
             return {
                 ...state,
@@ -23,26 +25,17 @@ function decks(state = initialState, action) {
     }
 }
 
-const initialState = {
-    React: {
-        title: 'React',
+const demoState = {
+    demo: {
+        title: 'demo',
         cards: [
             {
-                question: 'What is React?',
-                answer: 'A library for managing user interfaces'
+                question: 'This is a demo question',
+                answer: 'I think you\'ve guessed the answer. Correct?'
             },
             {
-                question: 'Where do you make Ajax requests in React?',
-                answer: 'The componentDidMount lifecycle event'
-            }
-        ]
-    },
-    JavaScript: {
-        title: 'JavaScript',
-        cards: [
-            {
-                question: 'What is a closure?',
-                answer: 'The combination of a function and the lexical environment within which that function was declared.'
+                question: 'You should add more decks',
+                answer: 'Go to the deck view'
             }
         ]
     },

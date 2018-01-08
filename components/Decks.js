@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {defaultStyles} from '../styles/default';
 import FcDeck from './shared/FcDeck';
+import {AppLoading} from 'expo';
 
 class Decks extends React.Component {
 
@@ -17,6 +18,10 @@ class Decks extends React.Component {
 
     render() {
         const {decks} = this.props;
+        if (!decks) {
+            return <AppLoading />;
+        }
+
         return <View style={defaultStyles.container}>
             <FlatList
                 data={decks}

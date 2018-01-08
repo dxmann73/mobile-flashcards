@@ -3,15 +3,13 @@ export const ADD_DECK = 'ADD_DECK';
 export const ADD_CARD = 'ADD_CARD';
 
 export function receiveDecks(decks) {
-    // TODO initial state: Storage empty, or do we provide a "demo" deck?
     return {
         type: RECEIVE_DECKS,
         decks,
     };
 }
 
-export function addDeck(title) {
-    const deck = {[title]: {title, cards: []}};
+export function addDeck(deck) {
     return {
         type: ADD_DECK,
         deck,

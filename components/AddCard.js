@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {KeyboardAvoidingView, Text, TextInput, View} from 'react-native';
+import {KeyboardAvoidingView, Text, TextInput} from 'react-native';
 import {defaultStyles} from '../styles/default';
-import {addCard} from '../actions/index';
 import FcButton from './shared/FcButton';
+import {defaultKeyboardVerticalOffset} from '../utils/misc';
+import {addCardToStorage} from '../utils/storage';
 
 const defaultState = {question: '', answer: ''};
 
@@ -13,7 +14,7 @@ class AddCard extends React.Component {
     state = defaultState;
     addCardToDeck = (question, answer) => {
         if (question.length > 0 && answer.length > 0) {
-            this.props.dispatchAddCard(this.props.title, {question, answer});
+            addCardToStorage(this.props.dispatch, this.props.title, {question, answer});
         }
         this.setState(defaultState);
     };
@@ -24,7 +25,7 @@ class AddCard extends React.Component {
 
     render() {
         const {title} = this.props;
-        return <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={65} style={defaultStyles.mainView}>
+        return <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={defaultKeyboardVerticalOffset} style={defaultStyles.mainView}>
             <Text>AddCard for deck {title}</Text>
             <TextInput style={defaultStyles.inputField}
                        placeholder="Please add a question"
@@ -48,8 +49,4 @@ const mapStateToProps = (state, {navigation}) => ({
     title: navigation.state.params.title,
 } );
 
-const mapDispatchToProps = (dispatch) => ({
-    dispatchAddCard: (deckTitle, card) => dispatch(addCard(deckTitle, card)),
-} );
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddCard);
+export default connect(mapStateToProps)(AddCard);

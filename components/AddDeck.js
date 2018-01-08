@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import {KeyboardAvoidingView, StyleSheet, Text, TextInput} from 'react-native';
 import FcButton from './shared/FcButton';
 import {defaultStyles} from '../styles/default';
-import {addDeck} from '../actions/index';
 import {appLightInk} from '../styles/colors';
+import {addDeckToStorage} from '../utils/storage';
+import {defaultKeyboardVerticalOffset} from '../utils/misc';
 
 const defaultState = {text: ''};
 
@@ -13,15 +14,14 @@ class AddDeck extends React.Component {
     addDeck = (title) => {
         // TODO animate text field when empty on submit
         if (title.length > 0) {
-            this.props.dispatchAddDeck(title);
-            this.props.navigation.navigate('AddCard', {title});
+            addDeckToStorage(this.props.dispatch, title)
+                .then(() => this.props.navigation.navigate('AddCard', {title}));
         }
         this.setState(defaultState);
     };
 
     render() {
-        // keyboardVerticalOffset as per https://github.com/react-navigation/react-navigation/issues/721
-        return <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={65} style={defaultStyles.mainView}>
+        return <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={defaultKeyboardVerticalOffset} style={defaultStyles.mainView}>
             <Text style={styles.heading}>What is the title</Text>
             <Text style={styles.heading}>of your new</Text>
             <Text style={styles.heading}>deck?</Text>
@@ -48,8 +48,4 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = (dispatch) => ({
-    dispatchAddDeck: (title) => dispatch(addDeck(title)),
-} );
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddDeck);
+export default connect(mapStateToProps)(AddDeck);
