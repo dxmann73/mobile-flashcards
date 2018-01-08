@@ -1,5 +1,20 @@
 {
     "expo": {
-        "sdkVersion": "23.0.0"
+        "sdkVersion": "23.0.0",
+        "orientation": "portrait",
+        "name": "Dxm Mobile Flashcards",
+        "description": "Yet another mobile flashcard app.",
+        "slug": "mobileFlashCards",
+        "version": "1.0",
+        "icon": "https://png.icons8.com/material/512/000000/questions.png",
+        "notification": {
+            "icon": "https://png.icons8.com/material/45/000000/questions.png"
+        },
+        "ios": {
+            "bundleIdentifier": "org.linkage.mfc"
+        },
+        "android": {
+            "package": "org.linkage.mfc"
+        }
     }
 }
