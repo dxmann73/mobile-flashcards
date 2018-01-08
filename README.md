@@ -1,4 +1,4 @@
-# mobile-flashcards
+# Dxm Mobile Flashcards
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 For general information on how to perform common tasks, see the [create-react-native-app guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
@@ -7,25 +7,25 @@ For general information on how to perform common tasks, see the [create-react-na
 
 This is a simple mobile flashcard app for Android (not tested on iOS).
 It allows users to study collections of flashcards. 
-The app will allow users to create different categories of flashcards called "decks", 
+The app allows users to create different categories of flashcards called "decks", 
 add flashcards to those decks, then take quizzes on those decks.
 
 On first start, a demo deck is provided. 
-Once you create decks yourself, the demo deck will be no longer there
+Once you create decks yourself, the demo deck will be no longer available.
 
 # Getting started
 
 ## Local development and testing
 
-First, install the [Expo app](https://expo.io) on your phone. 
-Connect your mobile device to your computer using a cable (you need to enable USB debugging)
-or make sure it is in the same subnet as your computer.
+First, install the [Expo app](https://expo.io) on your mobile device. 
+Connect your mobile device to your computer using a cable (you need to enable USB debugging),
+OR make sure it is in the same network as your computer.
 
 After that, if you have yarn installed (currently preferred for react native), simply start the app by
 ```
 yarn
 yarn start
-# or, if you have npm installed
+# or, if you want to use npm
 npm install
 npm start
 ```
@@ -35,15 +35,17 @@ Once the app is up, shake your phone to get a lot of nice options for debugging 
 ## Running the app locally 
 ```
 yarn android
-# or, if you have npm installed
+# or, if you want to use npm
 npm run android
 ```
 
+## Installing the app from the app store
+Coming Soon(TM)
 
-## Troubleshooting
+# Troubleshooting
 This is taken from [Create React Native App](https://github.com/react-community/create-react-native-app).
 
-### Networking
+## Networking
 If you're unable to load your app on your phone due to a network timeout or a refused connection, a good first step is to verify that your phone and computer are on the same network and that they can reach each other. Create React Native App needs access to ports 19000 and 19001 so ensure that your network and firewall settings allow access from your device to your computer on both of these ports.
 Try opening a web browser on your phone and opening the URL that the packager script prints, replacing `exp://` with `http://`. So, for example, if underneath the QR code in your terminal you see:
 ```
@@ -60,7 +62,7 @@ http://192.168.0.1:19001
 If this works, but you're still unable to load your app by scanning the QR code, please open an issue on the [Create React Native App repository](https://github.com/react-community/create-react-native-app) with details about these steps and any other error messages you may have received.
 If you're not able to load the `http` URL in your phone's web browser, try using the tethering/mobile hotspot feature on your phone (beware of data usage, though), connecting your computer to that WiFi network, and restarting the packager.
 
-### iOS Simulator won't open
+## iOS Simulator won't open
 
 If you're on a Mac, there are a few errors that users sometimes see when attempting to `npm run ios`:
 
@@ -74,7 +76,7 @@ There are a few steps you may want to take to troubleshoot these kinds of errors
 2. Open Xcode's Preferences, the Locations tab, and make sure that the `Command Line Tools` menu option is set to something. Sometimes when the CLI tools are first installed by Homebrew this option is left blank, which can prevent Apple utilities from finding the simulator. Make sure to re-run `npm/yarn run ios` after doing so.
 3. If that doesn't work, open the Simulator, and under the app menu select `Reset Contents and Settings...`. After that has finished, quit the Simulator, and re-run `npm/yarn run ios`.
 
-### QR Code does not scan
+## QR Code does not scan
 
 If you're not able to scan the QR code, make sure your phone's camera is focusing correctly, and also make sure that the contrast on the two colors in your terminal is high enough. For example, WebStorm's default themes may [not have enough contrast](https://github.com/react-community/create-react-native-app/issues/49) for terminal QR codes to be scannable with the system barcode scanners that the Expo app uses.
 
