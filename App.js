@@ -8,7 +8,6 @@ import {defaultStyles} from './styles/default';
 import {appHighlightInk} from './styles/colors';
 import Navigation from './components/Navigation';
 import {setAppNotification} from './utils/notifications';
-import {retrieveDecksFromStorage} from './utils/storage';
 
 const store = createStore(reducer);
 
@@ -17,7 +16,6 @@ class App extends React.Component {
     /** on app start, set up a daily notification initially, if not already there */
     componentDidMount() {
         setAppNotification();
-        retrieveDecksFromStorage();
     }
 
     render() {

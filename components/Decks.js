@@ -4,8 +4,12 @@ import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {defaultStyles} from '../styles/default';
 import FcDeck from './shared/FcDeck';
 import {AppLoading} from 'expo';
+import {retrieveDecksFromStorage} from '../utils/storage';
 
 class Decks extends React.Component {
+    componentWillMount() {
+        retrieveDecksFromStorage(this.props.dispatch);
+    }
 
     deckPanel = ({item}) => (
         <TouchableOpacity onPress={() => this.toDeck(item)} style={styles.panelWrapper}>
