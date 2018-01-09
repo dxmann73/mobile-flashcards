@@ -10,9 +10,6 @@ It allows users to study collections of flashcards.
 The app allows users to create different categories of flashcards called "decks", 
 add flashcards to those decks, then take quizzes on those decks.
 
-On first start, a demo deck is provided. 
-Once you create decks yourself, the demo deck will be no longer available.
-
 # Getting started
 
 ## Local development and testing
