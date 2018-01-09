@@ -28,7 +28,7 @@ class Quiz extends React.Component {
     };
     goBack = () => {
         this.moveNotificationOneDayForward();
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Deck', {title: this.props.title});
     };
 
     moveNotificationOneDayForward() {
@@ -54,8 +54,8 @@ class Quiz extends React.Component {
                 <Text style={styles.bigText}>You're done! Congrats!</Text>
                 <Text style={styles.score}>Final score: {score} of {cards.length} answers were correct.</Text>
                 {score === cards.length && <Text style={styles.bigText}>Well done!</Text>}
-                <FcButton onPress={this.restart} buttonText={'Start over'} inverted={true} />
-                <FcButton onPress={this.goBack} buttonText={'Done'} />
+                <FcButton onPress={this.restart} buttonText={'Restart Quiz'} inverted={true} />
+                <FcButton onPress={this.goBack} buttonText={'Return to Deck'} />
             </View>;
         }
 
