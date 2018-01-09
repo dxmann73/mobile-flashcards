@@ -15,7 +15,7 @@ class AddDeck extends React.Component {
         // later: animate text field when empty on submit
         if (title.length > 0) {
             addDeckToStorage(this.props.dispatch, title)
-                .then(() => this.props.navigation.navigate('AddCard', {title}));
+                .then(() => this.props.navigation.navigate('Deck', {title}));
         }
         this.setState(defaultState);
     };
