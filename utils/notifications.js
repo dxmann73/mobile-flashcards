@@ -26,6 +26,9 @@ export const setAppNotification = () => {
                                 {
                                     title: 'A quiz every day keeps the brain... in shape',
                                     body: 'Remember to take a quiz every day to stay in shape knowledge wise',
+                                    ios: {
+                                        sound: true,
+                                    },
                                     android: {
                                         sound: true,
                                         priority: 'high',
