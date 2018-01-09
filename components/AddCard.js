@@ -12,16 +12,16 @@ class AddCard extends React.Component {
     static navigationOptions = ({navigation}) => ({title: `Add card to '${navigation.state.params.title}'`});
 
     state = defaultState;
-    addCardToDeck = (question, answer) => {
+    addCardToDeck = (title, question, answer) => {
         if (question.length > 0 && answer.length > 0) {
-            addCardToStorage(this.props.dispatch, this.props.title, {question, answer});
-            this.props.navigation.navigate('Deck', {title: this.props.title});
+            addCardToStorage(this.props.dispatch, title, {question, answer});
+            this.props.navigation.navigate('Deck', {title});
         }
         this.setState(defaultState);
     };
-    goBack = () => {
+    goBack = (title) => {
         this.setState(defaultState);
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Deck', {title});
     };
 
     render() {
@@ -38,10 +38,10 @@ class AddCard extends React.Component {
                        onChangeText={(answer) => this.setState({answer})}
                        value={this.state.answer}
             />
-            <FcButton onPress={this.goBack}
-                      buttonText={'Cancel'} />
-            <FcButton onPress={() => this.addCardToDeck(this.state.question.trim(), this.state.answer.trim())}
-                      buttonText={'Add card'} inverted={true} />
+            <FcButton onPress={() => this.goBack(title)}
+                      buttonText={'Cancel'} inverted={true} />
+            <FcButton onPress={() => this.addCardToDeck(title, this.state.question.trim(), this.state.answer.trim())}
+                      buttonText={'Add card'} />
         </KeyboardAvoidingView>;
     }
 }
