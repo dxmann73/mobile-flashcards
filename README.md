@@ -44,3 +44,9 @@ Coming Soon(TM)
 
 # Troubleshooting
 see [Create React Native App](https://github.com/react-community/create-react-native-app).
+
+# Licensing
+This project is licensed under the MIT license, see the LICENSE file
+
+# Contributing
+Please feel free to open pull requests at any time. :-)
