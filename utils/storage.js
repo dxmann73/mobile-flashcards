@@ -3,7 +3,7 @@ import {AsyncStorage} from 'react-native';
 import {addCard, addDeck, receiveDecks} from '../actions/index';
 
 const storage_key = 'mobile-flashcards.decks';
-export const NO_DATA = {};
+const NO_DATA = {};
 
 /** Retrieves all decks from storage or empty object */
 export const retrieveDecksFromStorage = (dispatch) =>

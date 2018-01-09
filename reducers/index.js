@@ -1,13 +1,12 @@
 import {ADD_CARD, ADD_DECK, RECEIVE_DECKS} from '../actions/actionTypes';
-import {NO_DATA} from '../utils/storage';
 
 function decks(state = {}, action) {
     switch (action.type) {
         case RECEIVE_DECKS :
-            if (action.decks === NO_DATA) {
-                return demoState;
-            }
-            return action.decks;
+            return {
+                ...demoState,
+                ...action.decks,
+            };
         case ADD_DECK :
             return {
                 ...state,
