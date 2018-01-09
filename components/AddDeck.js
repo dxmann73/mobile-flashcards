@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {KeyboardAvoidingView, StyleSheet, Text, TextInput} from 'react-native';
 import FcButton from './shared/FcButton';
-import {defaultStyles} from '../styles/default';
+import {BIG_TEXT, defaultStyles} from '../styles/default';
 import {appLightInk} from '../styles/colors';
 import {addDeckToStorage} from '../utils/storage';
 import {defaultKeyboardVerticalOffset} from '../utils/misc';
@@ -38,7 +38,7 @@ class AddDeck extends React.Component {
 const styles = StyleSheet.create({
     heading: {
         height: 35,
-        fontSize: 30,
+        fontSize: BIG_TEXT,
         fontWeight: 'bold',
         color: appLightInk,
         justifyContent: 'center',

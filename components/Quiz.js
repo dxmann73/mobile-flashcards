@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {defaultStyles} from '../styles/default';
-import {appDefaultPaper, appGreen, appRed, appWhite} from '../styles/colors';
 import FcButton from './shared/FcButton';
 import {clearAppNotification, setAppNotification} from '../utils/notifications';
+import {styles} from './QuizStyles';
 
 const defaultState = {card: 0, score: 0, showFrontSide: true};
 
@@ -79,49 +79,6 @@ class Quiz extends React.Component {
         </View>;
     }
 }
-
-const styles = StyleSheet.create({
-    textView: {
-        padding: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: appDefaultPaper,
-    },
-    mediumText: {
-        fontSize: 28,
-        marginBottom: 10,
-    },
-    bigText: {
-        fontSize: 30,
-        marginBottom: 20,
-    },
-    score: {
-        fontSize: 16,
-        marginBottom: 10,
-    },
-    frontside: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: appGreen,
-    },
-    backside: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: appRed,
-    },
-    whiteOnGreen: {
-        backgroundColor: appGreen,
-        borderColor: appWhite,
-    },
-    buttonTextWhite: {
-        color: appWhite,
-    },
-    whiteOnRed: {
-        backgroundColor: appRed,
-        borderColor: appWhite,
-        borderWidth: 3,
-    },
-});
 
 const mapStateToProps = (state, {navigation}) => ({
     title: navigation.state.params.title,

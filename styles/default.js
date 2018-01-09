@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 import {appDarkInk, appDefaultPaper, appLightInk} from './colors';
 
+export const BIG_TEXT = 30;
+export const MED_TEXT = 28;
+export const SML_TEXT = 16;
+
 export const defaultStyles = StyleSheet.create({
     container: {
         flex: 1,

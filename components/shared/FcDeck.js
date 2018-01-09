@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {appDefaultInk, appDefaultPaper, appLightInk} from '../../styles/colors';
+import {MED_TEXT} from '../../styles/default';
 
 const FcDeck = ({title, numCards}) =>
     <View style={styles.fullWidthPanel}>
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
     },
     deckTitle: {
-        fontSize: 28,
+        fontSize: MED_TEXT,
         color: appDefaultInk,
     },
     deckSubtitle: {
