@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {defaultStyles} from '../styles/default';
 import FcDeck from './shared/FcDeck';
-import {AppLoading} from 'expo';
 import {retrieveDecksFromStorage} from '../utils/storage';
+import FcButton from './shared/FcButton';
 
 class Decks extends React.Component {
     componentWillMount() {
@@ -19,11 +19,17 @@ class Decks extends React.Component {
     toDeck = ({title}) => {
         this.props.navigation.navigate('Deck', {title});
     };
+    toAddDeck = () => {
+        this.props.navigation.navigate('AddDeck');
+    };
 
     render() {
         const {decks} = this.props;
-        if (!decks) {
-            return <AppLoading />;
+        if (!decks.length) {
+            return <View style={defaultStyles.mainView}>
+                <Text style={styles.teaserText}>You should add a deck first.</Text>
+                <FcButton onPress={this.toAddDeck} buttonText={'Add deck'} />
+            </View>;
         }
 
         return <View style={defaultStyles.container}>
@@ -41,6 +47,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomWidth: 2,
+    },
+    teaserText: {
+        fontSize: 20,
+        marginBottom: 20,
     },
 });
 
