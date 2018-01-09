@@ -1,4 +1,4 @@
-import {ADD_CARD, ADD_DECK, RECEIVE_DECKS} from '../actions';
+import {ADD_CARD, ADD_DECK, RECEIVE_DECKS} from '../actions/actionTypes';
 import {NO_DATA} from '../utils/storage';
 
 function decks(state = {}, action) {

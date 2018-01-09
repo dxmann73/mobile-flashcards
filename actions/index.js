@@ -1,6 +1,4 @@
-export const RECEIVE_DECKS = 'RECEIVE_DECKS';
-export const ADD_DECK = 'ADD_DECK';
-export const ADD_CARD = 'ADD_CARD';
+import {ADD_CARD, ADD_DECK, RECEIVE_DECKS} from './actionTypes';
 
 export function receiveDecks(decks) {
     return {
