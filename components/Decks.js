@@ -16,8 +16,8 @@ class Decks extends React.Component {
             <FcDeck title={item.title} numCards={item.numCards} />
         </TouchableOpacity>);
 
-    toDeck = ({title, numCards}) => {
-        this.props.navigation.navigate('Deck', {title, numCards});
+    toDeck = ({title}) => {
+        this.props.navigation.navigate('Deck', {title});
     };
 
     render() {

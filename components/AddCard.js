@@ -15,6 +15,7 @@ class AddCard extends React.Component {
     addCardToDeck = (question, answer) => {
         if (question.length > 0 && answer.length > 0) {
             addCardToStorage(this.props.dispatch, this.props.title, {question, answer});
+            this.props.navigation.navigate('Deck', {title: this.props.title});
         }
         this.setState(defaultState);
     };
@@ -37,10 +38,10 @@ class AddCard extends React.Component {
                        onChangeText={(answer) => this.setState({answer})}
                        value={this.state.answer}
             />
-            <FcButton onPress={() => this.addCardToDeck(this.state.question.trim(), this.state.answer.trim())}
-                      buttonText={'Add card'} />
             <FcButton onPress={this.goBack}
-                      buttonText={'Done'} inverted={true} />
+                      buttonText={'Cancel'} />
+            <FcButton onPress={() => this.addCardToDeck(this.state.question.trim(), this.state.answer.trim())}
+                      buttonText={'Add card'} inverted={true} />
         </KeyboardAvoidingView>;
     }
 }

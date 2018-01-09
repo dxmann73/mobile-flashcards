@@ -33,10 +33,13 @@ const styles = StyleSheet.create({
     },
 });
 
-const mapStateToProps = (state, {navigation}) => ({
-    title: navigation.state.params.title,
-    numCards: navigation.state.params.numCards,
-    deck: state[navigation.state.params.title],
-} );
+const mapStateToProps = (state, {navigation}) => {
+    const deck = state[navigation.state.params.title];
+    return {
+        title: navigation.state.params.title,
+        numCards: deck.cards.length,
+        deck,
+    };
+};
 
 export default connect(mapStateToProps)(Deck);
