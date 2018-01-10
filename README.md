@@ -37,7 +37,9 @@ npm run android
 ```
 
 ## Installing the app from the app store
-Coming Soon(TM)
+[Android Version](https://play.google.com/store/apps/details?id=org.linkage.mfc)
+Note that currently there is no iOS Version.
+
 
 # Troubleshooting
 see [Create React Native App](https://github.com/react-community/create-react-native-app).
