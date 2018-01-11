@@ -5,7 +5,7 @@
         "name": "Dxm Mobile Flashcards",
         "description": "Yet another mobile flashcard app.",
         "slug": "mobileFlashCards",
-        "version": "1.0",
+        "version": "1.1",
         "icon": "https://png.icons8.com/material/512/000000/questions.png",
         "notification": {
             "icon": "https://png.icons8.com/material/45/000000/questions.png"
